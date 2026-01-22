@@ -66,10 +66,12 @@ export default function Layout({ children }: LayoutProps) {
       </div>
 
       <div className="p-4 border-t border-sidebar-border">
-        <Button variant="ghost" className="w-full justify-start gap-2 text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10">
-          <LogOut className="w-4 h-4" />
-          Sair
-        </Button>
+        <Link href="/login">
+          <Button variant="ghost" className="w-full justify-start gap-2 text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10">
+            <LogOut className="w-4 h-4" />
+            Sair
+          </Button>
+        </Link>
       </div>
     </div>
   );

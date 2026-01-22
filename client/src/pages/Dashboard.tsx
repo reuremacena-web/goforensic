@@ -18,8 +18,16 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { toast } from "sonner";
+import { Link } from "wouter";
 
 export default function Dashboard() {
+  const handleExport = () => {
+    toast.success("Exportação iniciada", {
+      description: "O relatório será baixado em instantes."
+    });
+  };
+
   return (
     <>
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -28,14 +36,16 @@ export default function Dashboard() {
           <p className="text-muted-foreground mt-1">Visão geral das auditorias e conformidade florestal.</p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" className="gap-2">
+          <Button variant="outline" className="gap-2" onClick={handleExport}>
             <Download className="w-4 h-4" />
             Exportar Dados
           </Button>
-          <Button className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm">
-            <FileText className="w-4 h-4" />
-            Nova Auditoria
-          </Button>
+          <Link href="/audits/new">
+            <Button className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm">
+              <FileText className="w-4 h-4" />
+              Nova Auditoria
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -196,9 +206,11 @@ export default function Dashboard() {
               </div>
             ))}
             
-            <Button variant="outline" className="w-full mt-2">
-              Ver Todos os Alertas
-            </Button>
+            <Link href="/alerts">
+              <Button variant="outline" className="w-full mt-2">
+                Ver Todos os Alertas
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       </div>

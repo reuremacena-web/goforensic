@@ -23,6 +23,8 @@ function Router() {
             <Route path="/" component={Dashboard} />
             <Route path="/reports" component={() => <div className="p-4">Página de Relatórios (Em Breve)</div>} />
             <Route path="/audits" component={() => <div className="p-4">Página de Auditorias (Em Breve)</div>} />
+            <Route path="/audits/new" component={() => <div className="p-4">Nova Auditoria (Em Breve)</div>} />
+            <Route path="/alerts" component={() => <div className="p-4">Central de Alertas (Em Breve)</div>} />
             <Route path="/settings" component={() => <div className="p-4">Configurações (Em Breve)</div>} />
             <Route component={NotFound} />
           </Switch>

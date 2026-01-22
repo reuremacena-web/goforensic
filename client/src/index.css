@@ -40,42 +40,68 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
+  /* Neo-Brutalist Professional Palette */
+  /* Primary: Emerald Green for "Green Oracle" identity */
+  --primary: oklch(0.62 0.18 145.3); /* Emerald 600 */
+  --primary-foreground: oklch(0.98 0 0); /* White */
+  
+  /* Sidebar: Dark technical look */
+  --sidebar-primary: oklch(0.62 0.18 145.3);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  
+  /* Charts: Professional data visualization colors */
+  --chart-1: oklch(0.62 0.18 145.3); /* Emerald */
+  --chart-2: oklch(0.55 0.12 240.5); /* Blue */
+  --chart-3: oklch(0.65 0.15 60.5);  /* Orange */
+  --chart-4: oklch(0.50 0.15 300.5); /* Purple */
+  --chart-5: oklch(0.45 0.05 0);     /* Dark Gray */
+
+  /* Radius: Small for technical feel */
+  --radius: 0.3rem;
+
+  /* Base Colors: Clean and high contrast */
+  --background: oklch(0.99 0 0); /* Pure White */
+  --foreground: oklch(0.20 0.02 260); /* Dark Charcoal */
+
+  /* Card: Distinct with borders */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
+  --card-foreground: oklch(0.20 0.02 260);
+
+  /* UI Elements */
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --popover-foreground: oklch(0.20 0.02 260);
+  
+  --secondary: oklch(0.96 0.01 260); /* Light Gray */
+  --secondary-foreground: oklch(0.20 0.02 260);
+  
+  --muted: oklch(0.96 0.01 260);
+  --muted-foreground: oklch(0.50 0.02 260);
+  
+  --accent: oklch(0.94 0.02 145.3); /* Light Emerald Tint */
+  --accent-foreground: oklch(0.25 0.05 145.3); /* Dark Emerald Text */
+  
+  --destructive: oklch(0.55 0.20 25.5); /* Brick Red */
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Borders: Visible and structural */
+  --border: oklch(0.88 0.01 260);
+  --input: oklch(0.88 0.01 260);
+  --ring: oklch(0.62 0.18 145.3); /* Emerald Ring */
+
+  /* Sidebar specific */
+  --sidebar: oklch(0.98 0.01 260);
+  --sidebar-foreground: oklch(0.30 0.02 260);
+  --sidebar-accent: oklch(0.94 0.02 145.3);
+  --sidebar-accent-foreground: oklch(0.25 0.05 145.3);
+  --sidebar-border: oklch(0.90 0.01 260);
+  --sidebar-ring: oklch(0.62 0.18 145.3);
 }
 
 .dark {
@@ -118,7 +144,11 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-foreground;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),

@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -93,11 +93,9 @@ export default function Layout({ children }: LayoutProps) {
         {/* Header */}
         <header className="h-16 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40 px-6 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" onClick={() => setIsMobileOpen(true)}>
-                <Menu className="w-5 h-5" />
-              </Button>
-            </SheetTrigger>
+            <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMobileOpen(true)}>
+              <Menu className="w-5 h-5" />
+            </Button>
             
             <div className="hidden md:flex items-center gap-2 text-muted-foreground text-sm">
               <span className="font-medium text-foreground">Green Oracle</span>
